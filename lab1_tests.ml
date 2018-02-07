@@ -62,3 +62,25 @@ let test_square_all_v () =
   verify (square_all [4; -10; 12] = [16; 100; 144]) "mixed long list" ;;
 
 let _ = test_square_all_v () ;;
+
+let test_reversed () = 
+  verify (reversed [1; 2] = false) "ascending list";
+  verify (reversed [3; 3; 1] = true) "repeat in descending list";
+  verify (reversed [] = true) "empty list";
+  verify (reversed [7; 4; 2] = true) "descending list";
+  verify (reversed [3; 5; 4; 3; 2] = false) "ascending and descending list";
+  verify (reversed [-2; -4; -6] = true) "negative descending";
+  verify (reversed [-2; -1] = true) "negative ascending" ;;
+
+let _ = test_reversed () ;;
+
+let test_merge () =
+  verify (merge [1;3;5] [2;4;6] = [1; 2; 3; 4; 5; 6]) "basic merge";
+  verify (merge [] [] = []) "empty lists";
+  verify (merge [1] [1] = [1; 1]) "one-length lists";
+  verify (merge [-4; -1; 3] [-8; 9] = [-8; -4; -1; 3; 9]) "negatives";
+  verify (merge [100; 1000] [25; 250] = [25; 250; 100; 1000]) "multi-digits";
+
+let _ = test_merge () ;;
+
+

@@ -329,3 +329,4 @@ even numbers in its argument list.
    
 let evens  (lst :int list) : int list =
   List.fold_left (fun x y -> if y mod 2 = 0 then (x @ [y]) else (x)) [] lst;;
+  List.filter (fun x -> x mod 2 = 0) [] lst;;
